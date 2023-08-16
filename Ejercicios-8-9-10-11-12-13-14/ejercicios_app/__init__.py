@@ -1,4 +1,4 @@
-from flask import render_template, request, Flask
+from flask import render_template, request, Flask, jsonify
 from datetime import datetime
 import json
 import os
@@ -9,7 +9,7 @@ json_dir = os.path.join(direccion_actual, "static", "json", "morse_code.json")
 
 
 def ejercicios_td_app():
-    """Crea y configura la aplicación Flask"""
+    """Crea y configura la aplicación Flask junto con los endpoints y funciones necesarias"""
 
     app = Flask(__name__, static_folder=Config.STATIC_FOLDER,
                 template_folder=Config.TEMPLATE_FOLDER)
@@ -70,22 +70,32 @@ def ejercicios_td_app():
 
         return {'firstname': firstname, 'lastname': lastname, 'age': age, 'dni': dni}, 200
 
-    # Ejercicio 11
+    # Apertura del json para ejercicio 11 y 12
     with open(json_dir, 'r', encoding="utf-8") as data:
         datos = json.load(data)
 
+    #Ejercicio 11
     @app.route('/encode/<string:keyword>')
     def codifica_morse(keyword):
-        keyword1 = keyword.upper()
+        txt_mayus = keyword.upper()
         texto_codif = ""
-        for letra in keyword1:
+        for letra in txt_mayus:
             if letra in datos["letters"]:
                 texto_codif += datos["letters"][letra] + "+"
 
         return {'Mensaje en codigo morse': texto_codif}, 200
 
     # Ejercicio 12
-
+    @app.route('/decode/<string:keyword>')
+    def decodifica_morse(keyword):
+        morse_split = keyword.split("+")
+        texto_decod = ""
+        for cod in morse_split:
+            for letra, codigo_m in datos["letters"].items():
+                if cod == codigo_m:
+                    texto_decod += letra
+        return {'Mensaje decodificado': texto_decod.capitalize()}, 200
+    
     # Ejercicio 13
 
     # Ejercicio 14

@@ -13,3 +13,10 @@ http://127.0.0.1:5000/format?firstname=LUiS&lastname=vERa&dob=2002-01-09&dni=44.
 
 Ejercicio 11
 http://127.0.0.1:5000/encode/Buenas tardes
+
+Ejercicio 12
+http://127.0.0.1:5000/decode/-...+..-+.+-.+.-+...+^+-+.-+.-.+-..+.+...+
+
+Ejercicio 13
+
+Ejercicio 14
