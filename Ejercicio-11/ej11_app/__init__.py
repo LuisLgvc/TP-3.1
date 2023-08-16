@@ -20,9 +20,9 @@ def ej_11_app():
 
     @app.route('/encode/<string:keyword>')
     def titulo(keyword):
-        keyword = keyword.upper()
+        keyword1 = keyword.upper()
         texto_codif = ""
-        for letra in keyword:
+        for letra in keyword1:
             if letra in datos["letters"]:
                 texto_codif += datos["letters"][letra] + "+"
 
