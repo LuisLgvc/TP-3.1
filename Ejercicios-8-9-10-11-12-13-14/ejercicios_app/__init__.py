@@ -22,7 +22,21 @@ def ejercicios_td_app():
         formatted_word = word.capitalize()
 
         return ({"formatted_word": formatted_word}, 200)
-    
+
+    # Ejercicio 9
+    def formatear_dni(dni):
+        dni = dni.replace(".", "").replace("-", "")
+        if not dni.isdigit() or len(dni) != 8:
+            return None
+        return int(dni)
+
+    @app.route('/formatted/<string:dni>')
+    def dar_formato_dni(dni):
+        dni_formateado = formatear_dni(dni)
+        if dni_formateado is None:
+            return {'Error': 'Ha ocurrido un error'}, 400
+        return {"formatted_dni": dni_formateado}, 200
+
     # Ejercicio 10
     def format_name(name):
         return name.capitalize()
@@ -69,5 +83,11 @@ def ejercicios_td_app():
                 texto_codif += datos["letters"][letra] + "+"
 
         return {'Mensaje en codigo morse': texto_codif}, 200
+
+    # Ejercicio 12
+
+    # Ejercicio 13
+
+    # Ejercicio 14
 
     return app
