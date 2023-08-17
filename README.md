@@ -12,11 +12,13 @@ Ejercicio 10
 http://127.0.0.1:5000/format?firstname=LUiS&lastname=vERa&dob=2002-01-09&dni=44.661-871
 
 Ejercicio 11
-http://127.0.0.1:5000/encode/Buenas tardes
+http://127.0.0.1:5000/encode/Buenas+tardes
 
 Ejercicio 12
 http://127.0.0.1:5000/decode/-...+..-+.+-.+.-+...+^+-+.-+.-.+-..+.+...+
 
 Ejercicio 13
+http://127.0.0.1:5000/convert/binary/101001101001100
 
 Ejercicio 14
+http://127.0.0.1:5000/balance/({[]})
