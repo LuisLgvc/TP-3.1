@@ -3,4 +3,4 @@ class Config:
     DEBUG = True
 
     TEMPLATE_FOLDER = "templates/"
-    STATIC_FOLDER = "static_folder/"
+    STATIC_FOLDER = "ejercicios_app/static/"

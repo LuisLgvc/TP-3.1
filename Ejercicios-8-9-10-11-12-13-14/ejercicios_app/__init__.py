@@ -113,9 +113,10 @@ def ejercicios_td_app():
         else:
             return jsonify({'Error': 'Solo debe ingresar un numero binario'}), 400
 
+    # Ejercicio 14
     def balance(expresion):
         stack = Stack()
-        limiters = {')':'(', '}':'{', ']':'['}
+        limiters = {')': '(', '}': '{', ']': '['}
 
         for character in expresion:
             if character in '([{':
@@ -125,10 +126,10 @@ def ejercicios_td_app():
                     return False
                 stack.pop()
         return stack.is_empty()
-    # Ejercicio 14
-    @app.route('/balance/<string:input>')
-    def ver_balance(input):
-        result_balance = balance(input)
+
+    @app.route('/balance/<string:inputt>')
+    def ver_balance(inputt):
+        result_balance = balance(inputt)
         if result_balance:
             return jsonify({'balanced': result_balance}), 200
         else:
